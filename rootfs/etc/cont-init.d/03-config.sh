@@ -137,7 +137,6 @@ echo "Initializing files and folders..."
 mkdir -p /data/geoip \
   /data/rtorrent/log \
   /data/rtorrent/.session \
-  /data/rtorrent/watch \
   /data/rutorrent/conf/users \
   /data/rutorrent/plugins \
   /data/rutorrent/plugins-conf \
@@ -371,7 +370,6 @@ chown -R rtorrent:rtorrent \
   /data/geoip \
   /data/rtorrent/log \
   /data/rtorrent/.session \
-  /data/rtorrent/watch \
   /data/rutorrent/conf \
   /data/rutorrent/plugins \
   /data/rutorrent/plugins-conf \
