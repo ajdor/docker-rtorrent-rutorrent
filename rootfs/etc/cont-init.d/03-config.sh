@@ -143,9 +143,7 @@ mkdir -p /data/geoip \
   /data/rutorrent/plugins-conf \
   /data/rutorrent/share/users \
   /data/rutorrent/share/torrents \
-  /data/rutorrent/themes \
-  /downloads/complete \
-  /downloads/temp
+  /data/rutorrent/themes
 touch /passwd/rpc.htpasswd \
   /passwd/rutorrent.htpasswd \
   /passwd/webdav.htpasswd \
@@ -368,8 +366,6 @@ chown rtorrent:rtorrent \
   /data/rutorrent/share/users \
   /data/rutorrent/share/torrents \
   /downloads \
-  /downloads/complete \
-  /downloads/temp \
   "${RU_LOG_FILE}"
 chown -R rtorrent:rtorrent \
   /data/geoip \
