@@ -98,6 +98,14 @@ git reset --hard $GEOIP2_RUTORRENT_VERSION
 rm -rf .git*
 EOT
 
+FROM src AS src-3rd-party-ruTorrent-Themes
+ARG RUTORRENT_THEMES_VERSION
+RUN <<EOT
+git clone https://github.com/artyuum/3rd-party-ruTorrent-Themes .
+git reset --hard $RUTORRENT_THEMES_VERSION
+rm -rf .git*
+EOT
+
 FROM src AS src-mmdb
 RUN curl -SsOL "https://github.com/crazy-max/geoip-updater/raw/mmdb/GeoLite2-City.mmdb" \
   && curl -SsOL "https://github.com/crazy-max/geoip-updater/raw/mmdb/GeoLite2-Country.mmdb"
@@ -263,6 +271,7 @@ FROM crazymax/alpine-s6:${ALPINE_S6_VERSION}
 COPY --from=builder /dist /
 COPY --from=src-rutorrent --chown=nobody:nogroup /src /var/www/rutorrent
 COPY --from=src-geoip2-rutorrent --chown=nobody:nogroup /src /var/www/rutorrent/plugins/geoip2
+COPY --from=src-3rd-party-ruTorrent-Themes --chown=nobody:nogroup /src /data/rutorrent/themes
 COPY --from=src-mmdb /src /var/mmdb
 
 ENV PYTHONPATH="$PYTHONPATH:/var/www/rutorrent" \
