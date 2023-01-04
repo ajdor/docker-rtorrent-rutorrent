@@ -23,7 +23,7 @@ on:
       - '**.md'
 
 env:
-  GHCR_SLUG: ghcr.io/oajdor/rtorrent-rutorrent
+  GHCR_SLUG: ghcr.io/ajdor/rtorrent-rutorrent
 
 jobs:
   build:
